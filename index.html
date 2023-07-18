@@ -7,69 +7,31 @@
  <link rel="stylesheet" href="styles.css"> 
  <link rel="scripts" href="scripts.js">
   <title>gray</title> 
-  </head>
-<section class="nav">
-  <h1>FENIX LINE</h1>
-  <h3 class="span loader">
-    <span class="m">software</span>
-   <span class="m">E</span>
-    <span class="m">N</span>
-    <span class="m">E</span>
-    <span class="m">F</span>
-    <span class="m">I</span>
-    <span class="m">T</span>
-    <span class="m">S</span>
-    <span class="m">&nbsp;</span>
-    <span class="m">o</span>
-    <span class="m">f</span>
-    <span class="m">&nbsp;</span>
-    <span class="m">T</span>
-    <span class="m">E</span>
-    <span class="m">C</span>
-    <span class="m">H</span>
-    <span class="m">N</span>
-    <span class="m">O</span>
-    <span class="m">L</span>
-    <span class="m">O</span>
-    <span class="m">G</span>
-    <span class="m">I</span>
-    <span class="m">E</span>
-    <span class="m">S</span>
-  </h3>
-  <div class="nav-container">
-    <a class="nav-tab" href="#tab-svelte">SVELTE</a>
-    <a class="nav-tab" href="#tab-esbuild">ESBUILD</a>
-    <a class="nav-tab" href="#tab-next">NEXT.JS</a>
-    <a class="nav-tab" href="#tab-typescript">TYPESCRIPT</a>
-    <a class="nav-tab" href="#tab-vite">VITE</a>
-    <span class="nav-tab-slider"></span>
-  </div>
-</section>
+  </head> 
+        <body> 
+            v<form>
+  <label for="imagem">Selecione uma imagem:</label>
+  <input type="file" id="imagem" name="imagem">
+  <button type="button" onclick="exibirImagem()">Exibir imagem</button>
+</form>
 
-<main class="main">
-  <section id="tab-svelte" class="slider">
-    <h1>SVELTE</h1>
-    <h2>another frontend JS framework</h2>
-  </section>
-  <section id="tab-esbuild" class="slider">
-    <h1>ESBUILD</h1>
-    <h2>an extremely fast JavaScript bundler</h2>
-  </section>
-  <section id="tab-next" class="slider">
-    <h1>NEXT.JS</h1>
-    <h2>framework for Production</h2>
-  </section>
-  <section id="tab-typescript" class="slider">
-    <h1>TYPESCRIPT</h1>
-    <h2>giving you better tooling at any scale</h2>
-  </section>
-  <section id="tab-vite" class="slider">
-    <h1>VITE</h1>
-    <h2>a frontend build tool</h2>
-  </section>
-</main>
+<p id="imagem-selecionada"></p>
 
-<canvas class="background"></canvas>
+<script>
+function exibirImagem() {
+  const input = document.getElementById('imagem');
+  const file = input.files[0];
+  const reader = new FileReader();
+  reader.onload = function() {
+    const img = document.createElement('img');
+    img.src = reader.result;
+    document.getElementById('imagem-selecionada').appendChild(img);
+  };
+  reader.readAsDataURL(file);
+}
+</script>
+
+
 
 </body>
 </html>
